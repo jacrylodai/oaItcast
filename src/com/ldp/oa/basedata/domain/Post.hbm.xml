@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.ldp.oa.basedata.domain">
+	<class name="Post" table="t_post">
+		<id name="postId" column="post_id" length="24">
+            <generator class="increment"/>
+        </id>
+        <property name="postName" column="post_name" length="40"></property>
+        <property name="postDesc" column="post_desc" length="300"></property>
+        
+        <set name="userSet" table="t_user_post">
+        	<key column="post_id"></key>
+        	<many-to-many class="User" column="user_id"></many-to-many>
+        </set>
+        
+	</class>
+</hibernate-mapping>

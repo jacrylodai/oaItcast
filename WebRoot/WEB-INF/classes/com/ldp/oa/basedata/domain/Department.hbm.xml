@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.ldp.oa.basedata.domain">
+	<class name="Department" table="t_department">
+		<id name="departmentId" column="department_id" length="24">
+            <generator class="increment"/>
+        </id>
+        <property name="departmentName" column="department_name" length="40"></property>
+        <property name="departmentDesc" column="department_desc" length="300"></property>
+        
+        <set name="userSet" inverse="true">
+        	<key column="department_id"></key>
+        	<one-to-many class="User"/>
+        </set>
+        
+	</class>
+</hibernate-mapping>
