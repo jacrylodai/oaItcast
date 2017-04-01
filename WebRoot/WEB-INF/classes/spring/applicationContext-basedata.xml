@@ -24,7 +24,7 @@
 	
 	
 	<bean id="departmentDao" class="com.ldp.oa.basedata.dao.impl.DepartmentDaoImpl">
-		<property name="sessionFactory" ref="sessionFactory"></property>
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
 	</bean>
 	
 	<bean id="departmentService" class="com.ldp.oa.basedata.service.impl.DepartmentServiceImpl">

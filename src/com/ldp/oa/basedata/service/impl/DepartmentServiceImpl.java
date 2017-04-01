@@ -10,9 +10,9 @@ import com.ldp.oa.utils.proj.DeleteMode;
 
 public class DepartmentServiceImpl implements DepartmentService{
 
-	private DepartmentDao departmentDao;
-	
-	public void setDepartmentDao(DepartmentDao departmentDao) {
+	private DepartmentDao<Department> departmentDao;
+
+	public void setDepartmentDao(DepartmentDao<Department> departmentDao) {
 		this.departmentDao = departmentDao;
 	}
 
@@ -26,25 +26,25 @@ public class DepartmentServiceImpl implements DepartmentService{
 	@Override
 	public Collection<Department> getAllDepartment() {
 		
-		return departmentDao.getAllDepartment();
+		return departmentDao.getAllEntity();
 	}
 
 	@Override
 	public Department getDepartmentById(Serializable departmentId) {
 		
-		return departmentDao.getDepartmentById(departmentId);
+		return departmentDao.getEntityById(departmentId);
 	}
 
 	@Override
 	public void saveDepartment(Department department) {
 		
-		departmentDao.saveDepartment(department);
+		departmentDao.saveEntity(department);
 	}
 
 	@Override
 	public void updateDepartment(Department department) {
 		
-		departmentDao.updateDepartment(department);
+		departmentDao.updateEntity(department);
 	}
 
 }

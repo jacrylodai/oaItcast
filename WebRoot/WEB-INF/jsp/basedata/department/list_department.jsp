@@ -52,7 +52,7 @@
 				<tr class="TableDetail1 template">
 					<td><a href="_list_level2.html"><s:property value="#department.departmentName"/></a>&nbsp;</td>
 					<td>&nbsp;</td>
-					<td><s:property value="#department.departmentDesc"/>&nbsp;</td>
+					<td><s:property value="#department.departmentDesc" escape="false"/>&nbsp;</td>
 					<td>
 						<!-- 
 						<s:a href="%{#deleteUrl}">delete2</s:a>

@@ -1,8 +1,13 @@
 package com.ldp.oa.common.action;
 
-import com.opensymphony.xwork2.ActionSupport;
+import java.lang.reflect.ParameterizedType;
 
-public class BaseAction extends ActionSupport {
+import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
+
+public class BaseAction<T> extends ActionSupport implements ModelDriven<T> {
+	
+	private T t;
 
 	public static final String LIST_SUCCESS = "listSuccess";
 	public static final String SAVE_PREPARE_SUCCESS = "savePrepareSuccess";
@@ -12,4 +17,24 @@ public class BaseAction extends ActionSupport {
 	public static final String DELETE_SUCCESS = "deleteSuccess";
 	
 	public static final String REDIRECT_TO_LIST_ACTION = "redirectToListAction";
+
+	public BaseAction(){
+		
+		ParameterizedType paraType = 
+			(ParameterizedType) this.getClass().getGenericSuperclass();
+		Class classt = (Class) paraType.getActualTypeArguments()[0];
+		try {
+			t = (T) classt.newInstance();
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
+	public T getModel() {
+		return t;
+	}
+	
 }

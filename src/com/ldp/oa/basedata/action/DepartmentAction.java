@@ -8,22 +8,14 @@ import org.springframework.beans.BeanUtils;
 import com.ldp.oa.basedata.domain.Department;
 import com.ldp.oa.basedata.service.DepartmentService;
 import com.ldp.oa.common.action.BaseAction;
-import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.util.ValueStack;
 
-public class DepartmentAction extends BaseAction implements ModelDriven<Department> {
+public class DepartmentAction extends BaseAction<Department> {
 	
 	private DepartmentService departmentService;
-	
-	private Department model = new Department();
 
 	public void setDepartmentService(DepartmentService departmentService) {
 		this.departmentService = departmentService;
-	}
-	
-	@Override
-	public Department getModel() {
-		return model;
 	}
 
 	public String listDepartment() throws Exception{

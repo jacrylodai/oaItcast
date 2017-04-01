@@ -9,7 +9,15 @@
     <title>部门设置</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<%@ include file="../../../../common/common_script.jsp" %>
+    <script type="text/javascript" src="fckeditor/fckeditor.js"></script>
     <script type="text/javascript">
+    
+    $(document).ready(function(){
+    
+    	var oFCKeditor = new FCKeditor('departmentDesc') ;
+		oFCKeditor.BasePath	= "fckeditor/" ;
+		oFCKeditor.ReplaceTextarea() ;
+    });
     </script>
 </head>
 <body>
