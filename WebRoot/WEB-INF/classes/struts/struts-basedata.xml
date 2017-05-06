@@ -5,18 +5,30 @@
 
 <struts>
 
-	<package name="user-manage" extends="struts-default" namespace="/user">
-		<action name="*" method="{1}" class="userAction">
-			<result name="viewUser">/user/view_user.jsp</result>
-		</action>
-	</package>
-	
 	<package name="department-manage" extends="struts-default" namespace="/basedata/department">
 		<action name="departmentAction_*" method="{1}" class="departmentAction">
 			<result name="listSuccess">/WEB-INF/jsp/basedata/department/list_department.jsp</result>
 			<result name="savePrepareSuccess">/WEB-INF/jsp/basedata/department/save_prepare_department.jsp</result>
 			<result name="updatePrepareSuccess">/WEB-INF/jsp/basedata/department/update_prepare_department.jsp</result>
 			<result name="redirectToListAction" type="redirectAction">departmentAction_listDepartment</result>
+		</action>
+	</package>
+	
+	<package name="post-manage" extends="struts-default" namespace="/basedata/post">
+		<action name="postAction_*" method="{1}" class="postAction">
+			<result name="listSuccess">/WEB-INF/jsp/basedata/post/list_post.jsp</result>
+			<result name="savePrepareSuccess">/WEB-INF/jsp/basedata/post/save_prepare_post.jsp</result>
+			<result name="updatePrepareSuccess">/WEB-INF/jsp/basedata/post/update_prepare_post.jsp</result>
+			<result name="redirectToListAction" type="redirectAction">postAction_listPost</result>
+		</action>
+	</package>
+	
+	<package name="user-manage" extends="struts-default" namespace="/basedata/user">
+		<action name="userAction_*" method="{1}" class="userAction">
+			<result name="listSuccess">/WEB-INF/jsp/basedata/user/list_user.jsp</result>
+			<result name="savePrepareSuccess">/WEB-INF/jsp/basedata/user/save_prepare_user.jsp</result>
+			<result name="updatePrepareSuccess">/WEB-INF/jsp/basedata/user/update_prepare_user.jsp</result>
+			<result name="redirectToListAction" type="redirectAction">userAction_listUser</result>
 		</action>
 	</package>
 	

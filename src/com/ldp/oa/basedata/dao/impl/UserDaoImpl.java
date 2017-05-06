@@ -1,24 +1,24 @@
 package com.ldp.oa.basedata.dao.impl;
 
-import java.io.Serializable;
+import java.util.Collection;
 
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.springframework.stereotype.Repository;
 
 import com.ldp.oa.basedata.dao.UserDao;
 import com.ldp.oa.basedata.domain.User;
+import com.ldp.oa.common.dao.impl.BaseDaoImpl;
 
-public class UserDaoImpl extends HibernateDaoSupport implements UserDao{
-
-	@Override
-	public void save(User user) {
-
-		getHibernateTemplate().save(user);
-	}
+@Repository("userDao")
+public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao{
 
 	@Override
-	public User loadById(Serializable userId) {
-		User user = (User) getHibernateTemplate().load(User.class, userId);
-		return user;
+	public Collection<User> getAllEntity() {
+		
+		Collection<User> userList = 
+			hibernateTemplate.find(
+					"from User user" +
+					" left join fetch user.department department");
+		return userList;
 	}
-
+	
 }

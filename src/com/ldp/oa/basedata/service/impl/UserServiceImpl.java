@@ -1,28 +1,24 @@
 package com.ldp.oa.basedata.service.impl;
 
-import java.io.Serializable;
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
 
 import com.ldp.oa.basedata.dao.UserDao;
 import com.ldp.oa.basedata.domain.User;
 import com.ldp.oa.basedata.service.UserService;
+import com.ldp.oa.common.dao.BaseDao;
+import com.ldp.oa.common.service.impl.BaseServiceImpl;
 
-public class UserServiceImpl implements UserService{
+@Service("userService")
+public class UserServiceImpl extends BaseServiceImpl<User> implements UserService{
 
+	@Resource(name="userDao")
 	private UserDao userDao;
-	
-	public void setUserDao(UserDao userDao) {
-		this.userDao = userDao;
-	}
 
 	@Override
-	public void saveUser(User user) {
-		userDao.save(user);
-	}
-
-	@Override
-	public User loadUserById(Serializable userId) {
-		User user =  userDao.loadById(userId);
-		return user;
+	protected BaseDao<User> getBaseDao() {
+		return userDao;
 	}
 
 }

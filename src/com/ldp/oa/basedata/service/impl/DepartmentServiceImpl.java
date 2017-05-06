@@ -1,50 +1,37 @@
 package com.ldp.oa.basedata.service.impl;
 
 import java.io.Serializable;
-import java.util.Collection;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.ldp.oa.basedata.dao.DepartmentDao;
 import com.ldp.oa.basedata.domain.Department;
 import com.ldp.oa.basedata.service.DepartmentService;
+import com.ldp.oa.common.dao.BaseDao;
+import com.ldp.oa.common.service.impl.BaseServiceImpl;
 import com.ldp.oa.utils.proj.DeleteMode;
 
-public class DepartmentServiceImpl implements DepartmentService{
+@Service(value="departmentService")
+public class DepartmentServiceImpl extends BaseServiceImpl<Department> 
+	implements DepartmentService{
+	
+	@Resource(name="departmentDao")
+	private DepartmentDao departmentDao;
 
-	private DepartmentDao<Department> departmentDao;
-
-	public void setDepartmentDao(DepartmentDao<Department> departmentDao) {
-		this.departmentDao = departmentDao;
+	@Override
+	protected BaseDao<Department> getBaseDao() {
+		return departmentDao;
 	}
 
 	@Override
-	public void deleteDepartmentById(Serializable departmentId) {
+	@Transactional(readOnly=false)
+	public void deleteEntityById(Serializable id) {
 
-		departmentDao.deleteDepartmentById(departmentId,
+		departmentDao.deleteDepartmentById(id,
 				DeleteMode.DELETE_MODE_PRE_DETACH);
-	}
-
-	@Override
-	public Collection<Department> getAllDepartment() {
-		
-		return departmentDao.getAllEntity();
-	}
-
-	@Override
-	public Department getDepartmentById(Serializable departmentId) {
-		
-		return departmentDao.getEntityById(departmentId);
-	}
-
-	@Override
-	public void saveDepartment(Department department) {
-		
-		departmentDao.saveEntity(department);
-	}
-
-	@Override
-	public void updateDepartment(Department department) {
-		
-		departmentDao.updateEntity(department);
 	}
 
 }

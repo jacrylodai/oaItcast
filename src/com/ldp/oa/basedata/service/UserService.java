@@ -1,13 +1,8 @@
 package com.ldp.oa.basedata.service;
 
-import java.io.Serializable;
-
 import com.ldp.oa.basedata.domain.User;
+import com.ldp.oa.common.service.BaseService;
 
-public interface UserService {
-
-	public void saveUser(User user);
-	
-	public User loadUserById(Serializable userId);
+public interface UserService extends BaseService<User> {
 	
 }
