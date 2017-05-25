@@ -20,6 +20,8 @@ public class User implements Serializable{
 	private Department department;
 	
 	private Set<Post> postSet;
+	
+	private Set<MenuItem> menuItemSet;
 
 	public Long getUserId() {
 		return userId;
@@ -83,6 +85,14 @@ public class User implements Serializable{
 
 	public void setPostSet(Set<Post> postSet) {
 		this.postSet = postSet;
+	}
+
+	public Set<MenuItem> getMenuItemSet() {
+		return menuItemSet;
+	}
+
+	public void setMenuItemSet(Set<MenuItem> menuItemSet) {
+		this.menuItemSet = menuItemSet;
 	}
 	
 }

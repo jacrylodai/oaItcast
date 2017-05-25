@@ -5,4 +5,6 @@ import com.ldp.oa.common.service.BaseService;
 
 public interface UserService extends BaseService<User> {
 	
+	public User getUserByUsername(String username);
+	
 }

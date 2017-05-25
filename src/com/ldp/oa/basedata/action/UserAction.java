@@ -35,6 +35,12 @@ public class UserAction extends BaseAction<UserForm>{
 	@Resource(name="postService")
 	private PostService postService;
 	
+	private Boolean usernameValid;
+	
+	public Boolean getUsernameValid() {
+		return usernameValid;
+	}
+
 	public String listUser() throws Exception{
 		
 		Collection<User> userList = userService.getAllEntity();
@@ -81,6 +87,22 @@ public class UserAction extends BaseAction<UserForm>{
 		userService.saveEntity(user);
 		
 		return REDIRECT_TO_LIST_ACTION;
+	}
+	
+	public String checkUserByUsername() throws Exception{
+		
+		UserForm model = getModel();
+		String username = model.getUsername();
+		
+		User user = userService.getUserByUsername(username);
+		
+		if(user == null){
+			usernameValid = true;
+		}else{
+			usernameValid = false;
+		}
+		
+		return SUCCESS;
 	}
 	
 }

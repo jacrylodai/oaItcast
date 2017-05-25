@@ -9,22 +9,8 @@
     <title>用户信息</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<%@ include file="../../../../common/common_script.jsp" %>
+	<script language="javascript" src="script/basedata/user/js_save_prepare_user.js"></script>
     <script type="text/javascript">
-    $(document).ready(function(){
-    
-    	$('input[type=image]').bind('click',function(){
-	    	if($('select[name="departmentId"] option:selected').attr('value') == '-1'){
-	    		alert("请选择部门");
-	    		return false;
-	    	}
-	    	
-	    	if($('select[name="postIdList"] option:selected').size() == 0){
-	    		alert("请选择岗位，至少选择一项");
-	    		return false;
-	    	}
-	    	return true;
-    	});
-    });
     </script>
 </head>
 <body>
@@ -63,7 +49,7 @@
                     <tr><td>用户名</td>
                     	
                         <td><s:textfield name="username" cssClass="InputStyle"></s:textfield> *
-							（用户名要唯一）
+							<s:label id="usernameMsg"></s:label>
 						</td>
                     </tr>
 					<tr><td>性别</td>

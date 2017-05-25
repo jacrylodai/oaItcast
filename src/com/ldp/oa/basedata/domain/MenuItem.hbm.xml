@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.ldp.oa.basedata.domain">
+	<class name="MenuItem" table="t_menu_item">
+		<id name="menuId" column="menu_id" length="24">
+            <generator class="assigned"/>
+        </id>
+        <property name="pid" length="24"></property>
+        <property name="isParent"></property>
+        <property name="menuName" column="menu_name" length="50"></property>
+        <property name="icon" length="70"></property>
+        
+        <set name="userSet" table="t_user_menu_item">
+        	<key column="menu_id"></key>
+        	<many-to-many class="User" column="user_id"></many-to-many>
+        </set>
+        
+	</class>
+</hibernate-mapping>

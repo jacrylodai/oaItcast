@@ -32,4 +32,16 @@
 		</action>
 	</package>
 	
+	<package name="user-ajax-manage" extends="json-default" namespace="/basedata/user">
+		<action name="userAjaxAction_*" method="{1}" class="userAction">
+			<result name="success" type="json"></result>
+		</action>
+	</package>
+	
+	<package name="menu-item-manage" extends="json-default" namespace="/basedata/menuItem">
+		<action name="menuItemAction_*" method="{1}" class="menuItemAction">
+			<result name="success" type="json"></result>
+		</action>
+	</package>
+	
 </struts>

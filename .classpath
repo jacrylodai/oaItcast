@@ -11,7 +11,7 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/struts/ognl-2.7.3.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/struts/struts2-core-2.1.8.1.jar" sourcepath="H:/javalib/struts-2.1.8.1-all.zip"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/struts/struts2-spring-plugin-2.1.8.1.jar"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/struts/xwork-core-2.1.6.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/struts/xwork-core-2.1.6.jar" sourcepath="H:/javalib/xwork-assembly-2.1.6-all/xwork-2.1.6/lib/xwork-core-2.1.6-sources.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/spring/spring.jar" sourcepath="H:/javalib/spring-framework-2.5-with-dependencies.zip"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/spring/aspectjrt.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/spring/aspectjweaver.jar"/>
@@ -28,5 +28,8 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/hibernate/slf4j-log4j12.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/spring/log4j-1.2.14.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/json/json-lib-2.1.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/json/struts2-json-plugin-2.1.8.1.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/json/struts2-junit-plugin-2.1.8.1.jar"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>

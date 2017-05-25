@@ -20,5 +20,10 @@
         	<many-to-many class="Post" column="post_id"></many-to-many>
         </set>
         
+        <set name="menuItemSet" table="t_user_menu_item">
+        	<key column="user_id"></key>
+        	<many-to-many class="MenuItem" column="menu_id"></many-to-many>
+        </set>
+        
 	</class>
 </hibernate-mapping>
