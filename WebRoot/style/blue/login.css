@@ -116,3 +116,8 @@ A:visited {
 #CopyRight A:hover {
 	COLOR: #4c91bf; TEXT-DECORATION: none;
 }
+
+.errorMessage{
+	font-size: 14px;
+	color: #ff0000;
+}

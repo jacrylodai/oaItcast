@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <link rel="stylesheet" href="style/zTreeStyle/zTreeStyle.css" type="text/css">
 	<script type="text/javascript" src="script/jquery-1.4.2.js"></script>
 	<script type="text/javascript" src="script/jquery-ztree-2.5.js"></script>
-	<script type="text/javascript" src="script/js_test_menu.js"></script>
+	<script type="text/javascript" src="script/other/js_test_menu_click.js"></script>
 
   </head>
   

@@ -32,4 +32,16 @@
 		</property>
 	</bean>
 	
+	<bean id="oaExceptionHandler" class="com.ldp.oa.aop.OAExceptionHandler"></bean>
+	
+	<aop:config>
+		<aop:pointcut expression="execution(* com.ldp.oa.*.service.*.*(..))" 
+			id="allServiceMethod"/>
+	
+		<aop:aspect ref="oaExceptionHandler">
+			<aop:after-throwing method="handleException" throwing="ex" 
+				pointcut-ref="allServiceMethod"/>
+		</aop:aspect>
+	</aop:config>
+	
 </beans>

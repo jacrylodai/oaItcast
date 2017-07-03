@@ -11,6 +11,8 @@
         <property name="isParent"></property>
         <property name="menuName" column="menu_name" length="50"></property>
         <property name="icon" length="70"></property>
+        <property name="url" length="200"></property>
+        <property name="target" length="50"></property>
         
         <set name="userSet" table="t_user_menu_item">
         	<key column="menu_id"></key>

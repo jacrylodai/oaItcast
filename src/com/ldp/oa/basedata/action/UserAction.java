@@ -37,6 +37,12 @@ public class UserAction extends BaseAction<UserForm>{
 	
 	private Boolean usernameValid;
 	
+	private String errorMessage;
+	
+	public String getErrorMessage() {
+		return errorMessage;
+	}
+
 	public Boolean getUsernameValid() {
 		return usernameValid;
 	}
@@ -91,17 +97,23 @@ public class UserAction extends BaseAction<UserForm>{
 	
 	public String checkUserByUsername() throws Exception{
 		
-		UserForm model = getModel();
-		String username = model.getUsername();
-		
-		User user = userService.getUserByUsername(username);
-		
-		if(user == null){
-			usernameValid = true;
-		}else{
-			usernameValid = false;
+		try{
+			
+			UserForm model = getModel();
+			String username = model.getUsername();
+			
+			User user = userService.getUserByUsername(username);
+			
+			if(user == null){
+				usernameValid = true;
+			}else{
+				usernameValid = false;
+			}
+			
+		}catch(Exception ex){
+			errorMessage = ex.getMessage();
 		}
-		
+
 		return SUCCESS;
 	}
 	

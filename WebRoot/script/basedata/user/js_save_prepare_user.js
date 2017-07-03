@@ -42,15 +42,23 @@ var user = {
     	return true;
 	},
 	
+	resetCheckUsername:function(){
+		var usernameMsgElt = $("#usernameMsg");
+		usernameMsgElt.text("");
+		usernameValid = false;
+	},
+	
 	checkUsername:function(username){
 		
 		console.log("username:"+username);
 		var usernameReg = new RegExp("^[\\w\\d\\_]{6,30}$");
-		if(!usernameReg.test(username)){
-			return false;
-		}
 		
 		var usernameMsgElt = $("#usernameMsg");
+		
+		if(!usernameReg.test(username)){
+			user.resetCheckUsername();
+			return false;
+		}		
 		
 		var params = {
 			"username":username
@@ -58,6 +66,13 @@ var user = {
 			
 		$.post("basedata/user/userAjaxAction_checkUserByUsername.action",params,function(data){
 			console.log("data:"+data);
+			
+			if(data.errorMessage != null){
+				user.resetCheckUsername();
+				alert("请求数据失败："+data.errorMessage);
+				return;
+			}
+			
 			if(data.usernameValid){
 				usernameValid = true;
 				usernameMsgElt.text("用户名是唯一的");
@@ -67,6 +82,54 @@ var user = {
 				usernameMsgElt.text("用户名已经存在，请重新输入");
 				usernameMsgElt.css("color","red");
 			}
+		});
+	},
+	
+	checkUsernameAjax:function(username){
+		
+		console.log("username:"+username);
+		var usernameReg = new RegExp("^[\\w\\d\\_]{6,30}$");
+		
+		var usernameMsgElt = $("#usernameMsg");
+		
+		if(!usernameReg.test(username)){
+			user.resetCheckUsername();
+			return false;
+		}		
+		
+		var params = {
+			"username":username
+			};
+			
+		$.ajax({
+			type:"POST",
+			url:"basedata/user/userAjaxAction_checkUserByUsername.action",
+			data:params,
+			success:function (data, textStatus) {
+			    // data 可能是 xmlDoc, jsonObj, html, text, 等等...
+				console.log("success post");
+			    console.log("data:"+data);
+				if(data.usernameValid){
+					usernameValid = true;
+					usernameMsgElt.text("用户名是唯一的");
+					usernameMsgElt.css("color","blue");
+				}else{
+					usernameValid = false;
+					usernameMsgElt.text("用户名已经存在，请重新输入");
+					usernameMsgElt.css("color","red");
+				}
+			},
+			error:function (XMLHttpRequest, textStatus, errorThrown) {
+			    // 通常 textStatus 和 errorThrown 之中
+			    // 只有一个会包含信息
+				console.log("error happen");				
+			    console.log("textStatus:"+textStatus);
+				console.log("errorThrown:"+errorThrown);
+				
+				user.resetCheckUsername();
+				alert("请求服务器时发生错误："+textStatus);
+			}
+			
 		});
 	}
 	

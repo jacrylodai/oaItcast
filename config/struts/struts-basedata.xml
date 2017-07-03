@@ -44,4 +44,29 @@
 		</action>
 	</package>
 	
+	<package name="privilege-manage" extends="json-default" namespace="/basedata/privilege">
+		<action name="privilegeAction_*" method="{1}" class="privilegeAction">
+			<result name="success" type="json"></result>
+		</action>
+	</package>
+	
+	<package name="login-manage" extends="struts-default" namespace="/basedata/login">
+		<action name="loginAction_*" method="{1}" class="loginAction">
+			<result name="loginPrepare">/WEB-INF/jsp/basedata/login/login_prepare.jsp</result>
+			<result name="fail">/WEB-INF/jsp/basedata/login/login_prepare.jsp</result>
+			<result name="validateLoginSuccess" type="redirect">../../basedata/index/indexAction_siteIndex.action</result>
+			<result name="logout" type="redirectAction">loginAction_loginPrepare</result>
+		</action>
+	</package>
+	
+	<package name="index-manage" extends="struts-default" namespace="/basedata/index">
+		<action name="indexAction_*" method="{1}" class="indexAction">
+			<result name="siteIndex">/WEB-INF/jsp/basedata/index/site_index.jsp</result>
+			<result name="topPage">/WEB-INF/jsp/basedata/index/top.jsp</result>
+			<result name="leftPage">/WEB-INF/jsp/basedata/index/left.jsp</result>
+			<result name="rightPage">/WEB-INF/jsp/basedata/index/right.jsp</result>
+			<result name="bottomPage">/WEB-INF/jsp/basedata/index/bottom.jsp</result>
+		</action>
+	</package>
+	
 </struts>
