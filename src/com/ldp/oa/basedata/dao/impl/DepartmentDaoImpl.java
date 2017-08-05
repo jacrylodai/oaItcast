@@ -20,10 +20,10 @@ public class DepartmentDaoImpl extends BaseDaoImpl<Department> implements
 	public void deleteDepartmentById(Serializable departmentId, int deleteMode) {
 
 		Department department = 
-			(Department) getHibernateTemplate().get(Department.class, departmentId);
+			(Department) hibernateTemplate.get(Department.class, departmentId);
 		if(DeleteMode.DELETE_MODE_NORMAL == deleteMode){
 			
-			getHibernateTemplate().delete(department);
+			hibernateTemplate.delete(department);
 		}else
 			if(DeleteMode.DELETE_MODE_PRE_DETACH == deleteMode){
 				
@@ -32,10 +32,10 @@ public class DepartmentDaoImpl extends BaseDaoImpl<Department> implements
 				while(userIt.hasNext()){
 					User user = userIt.next();
 					user.setDepartment(null);
-					getHibernateTemplate().save(user);
+					hibernateTemplate.save(user);
 				}
 				
-				getHibernateTemplate().delete(department);
+				hibernateTemplate.delete(department);
 			}else
 				if(DeleteMode.DELETE_MODE_CASCADE == deleteMode){
 					

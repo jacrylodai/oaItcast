@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<package name="kynamic-manage" extends="json-default" namespace="/resource/kynamic">
+		<action name="kynamicAction_*" method="{1}" class="kynamicAction">
+			<result name="success" type="json"></result>
+			<result name="listSuccess">/WEB-INF/jsp/resource/kynamic/list_kynamic.jsp</result>
+		</action>
+	</package>
+	
+</struts>

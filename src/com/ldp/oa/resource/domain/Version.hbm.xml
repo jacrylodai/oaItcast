@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.ldp.oa.resource.domain">
+	<class name="Version" table="t_version">
+		<id name="versionId" column="version_id" length="24">
+            <generator class="increment"/>
+        </id>
+        <property name="versionCode" column="version_code" length="24"></property>
+        <property name="updateTime" column="update_time"></property>
+        <property name="title" length="80"></property>
+        <property name="content" length="1000"></property>
+		
+		<many-to-one name="kynamic" class="Kynamic" column="fk_kynamic_id"></many-to-one>
+		        
+	</class>
+</hibernate-mapping>

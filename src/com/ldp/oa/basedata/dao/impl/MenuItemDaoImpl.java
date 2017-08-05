@@ -15,7 +15,7 @@ public class MenuItemDaoImpl extends BaseDaoImpl<MenuItem> implements MenuItemDa
 	public Collection<MenuItem> getMenuItemListByPid(Long pid) {
 		
 		Collection<MenuItem> menuItemList = 
-			getHibernateTemplate().find(
+			hibernateTemplate.find(
 					"from MenuItem menuItem where menuItem.pid=?"
 					, pid);
 		return menuItemList;
@@ -28,7 +28,7 @@ public class MenuItemDaoImpl extends BaseDaoImpl<MenuItem> implements MenuItemDa
 				"select menuItem from MenuItem menuItem" +
 				" inner join menuItem.userSet user" +
 				" where user.userId=?";
-		Collection<MenuItem> menuItemList = getHibernateTemplate().find(hql,userId);
+		Collection<MenuItem> menuItemList = hibernateTemplate.find(hql,userId);
 		
 		return menuItemList;
 	}

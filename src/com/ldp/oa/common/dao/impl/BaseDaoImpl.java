@@ -27,14 +27,6 @@ public class BaseDaoImpl<T> implements BaseDao<T>{
 		System.out.println("ownerType:"+paraType.getOwnerType());
 	}
 
-	public HibernateTemplate getHibernateTemplate() {
-		return hibernateTemplate;
-	}
-
-	public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
-		this.hibernateTemplate = hibernateTemplate;
-	}
-
 	@Override
 	public void deleteEntityById(Serializable id) {
 
@@ -67,6 +59,11 @@ public class BaseDaoImpl<T> implements BaseDao<T>{
 	public void updateEntity(T t) {
 
 		hibernateTemplate.update(t);
+	}
+
+	@Override
+	public void deleteEntity(T t) {
+		hibernateTemplate.delete(t);
 	}
 
 }

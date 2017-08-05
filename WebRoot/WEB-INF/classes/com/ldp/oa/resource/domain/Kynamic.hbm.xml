@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.ldp.oa.resource.domain">
+	<class name="Kynamic" table="t_kynamic">
+		<id name="kynamicId" column="kynamic_id" length="24">
+            <generator class="increment"/>
+        </id>
+        <property name="pid" length="24"></property>
+        <property name="kynamicName" column="kynamic_name" length="50"></property>
+        <property name="isParent" column="is_parent"></property>
+        
+	</class>
+</hibernate-mapping>

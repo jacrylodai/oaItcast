@@ -45,4 +45,11 @@ public abstract class BaseServiceImpl<T> implements BaseService<T>{
 		getBaseDao().updateEntity(t);
 	}
 
+	@Override
+	@Transactional(readOnly=false)
+	public void deleteEntity(T t) {
+
+		getBaseDao().deleteEntity(t);
+	}
+
 }

@@ -25,6 +25,9 @@
 	<mapping resource="com/ldp/oa/basedata/domain/Department.hbm.xml"></mapping>
 	<mapping resource="com/ldp/oa/basedata/domain/Post.hbm.xml"></mapping>
 	<mapping resource="com/ldp/oa/basedata/domain/MenuItem.hbm.xml"></mapping>
+	
+	<mapping resource="com/ldp/oa/resource/domain/Kynamic.hbm.xml"></mapping>
+	<mapping resource="com/ldp/oa/resource/domain/Version.hbm.xml"></mapping>
 
 </session-factory>
 </hibernate-configuration>

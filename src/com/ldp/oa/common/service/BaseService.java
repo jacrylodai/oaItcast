@@ -8,6 +8,8 @@ public interface BaseService<T> {
 	public void saveEntity(T t);
 	
 	public void deleteEntityById(Serializable id);
+
+	public void deleteEntity(T t);
 	
 	public void updateEntity(T t);
 	

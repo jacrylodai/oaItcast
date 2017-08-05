@@ -9,6 +9,8 @@ public interface BaseDao<T> {
 	
 	public void deleteEntityById(Serializable id);
 	
+	public void deleteEntity(T t);
+	
 	public void updateEntity(T t);
 	
 	public T getEntityById(Serializable id);
